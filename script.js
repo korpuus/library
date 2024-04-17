@@ -26,5 +26,8 @@ function addBookToLibrary () {
     const newPages = pagesInput.value;
     const newReadYes = readYesInput.value;
     const newReadNo = readNoInput.value;
+
+    const newBook = new Book(newTitle, newAuthor, newPages, newReadYes, newReadNo)
+    myLibrary.push(newBook);
   })
 }
