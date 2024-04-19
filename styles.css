@@ -32,6 +32,14 @@ body {
   opacity: 0.75;
 }
 
-p {
-  color: rgb(223, 212, 212);
+#library-display{
+  display: grid;
+  grid-template-columns: repeat(autofit, minmax(200px, 1fr));
+  grid-gap: 1em;
+}
+
+.card {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1em 1.5em;
 }
