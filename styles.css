@@ -1,3 +1,27 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: gray;
+}
+
+.book-form {
+  background-color: rgb(226, 220, 220);
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, button {
+  width: 200px;
+}
+
+#library-container {
+  background-color: white;
 }

@@ -9,25 +9,37 @@ function Book(title, author, pages, read) {
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read');
-
-console.log(theHobbit.info());
+myLibrary.push(theHobbit); // Add initial book (optional)
 
 function addBookToLibrary () {
   const title = document.getElementById('title');
   const author = document.getElementById('author');
   const pages = document.getElementById('pages');
-  const readYes = document.getElementById('readYes');
-  const readNo = document.getElementById('readNo');
+  const read = document.getElementById('read');
   const submitButton = document.getElementById('submitButton');
 
   submitButton.addEventListener('click', () => {
-    const newTitle = titleInput.value;
-    const newAuthor = authorInput.value;
-    const newPages = pagesInput.value;
-    const newReadYes = readYesInput.value;
-    const newReadNo = readNoInput.value;
+    const newTitle = title.value;
+    const newAuthor = author.value;
+    const newPages = pages.value;
+    const newRead = read.value;
 
-    const newBook = new Book(newTitle, newAuthor, newPages, newReadYes, newReadNo)
+    const newBook = new Book(newTitle, newAuthor, newPages, newRead);
     myLibrary.push(newBook);
+
   })
 }
+
+
+function displayLibrary() {
+  const libraryContainer = document.getElementById('library-container');
+
+  myLibrary.forEach(book => {
+    const infoElement = document.createElement('p');
+    infoElement.textContent = book.info();
+    libraryContainer.appendChild(infoElement);
+  })
+}
+
+addBookToLibrary();
+displayLibrary();
