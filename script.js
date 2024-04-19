@@ -34,15 +34,15 @@ function addBookToLibrary () {
     event.preventDefault();
 
     //Capturing form data
-    const title = document.getElementById('title');
-    const author = document.getElementById('author');
-    const pages = document.getElementById('pages');
-    const read = document.getElementById('read');
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').value;
 
     const newBook = new Book (title, author, pages, read);
 
     myLibrary.push(newBook);
-
+    console.log(newBook.info());
     modal.close();
   })
 }
