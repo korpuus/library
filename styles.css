@@ -9,11 +9,17 @@ body {
   padding-top: 100px;
 }
 
+.button {
+  display: flex;
+  justify-content: center;
+}
+
 .new-book-btn {
   background-color: rgb(88, 88, 248);
   color: white;
   border-radius: 10px;
   padding: 10px 20px;
+  margin-bottom: 10px;
 }
 
 .new-book-btn:hover {
@@ -34,8 +40,13 @@ body {
 
 #library-display{
   display: grid;
-  grid-template-columns: repeat(autofit, minmax(200px, 1fr));
-  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+
+.library-flex{
+ display: flex;
+ justify-content: center;
 }
 
 .card {
