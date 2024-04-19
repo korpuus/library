@@ -15,21 +15,34 @@ const theShit = new Book ('The Shot', 'Ted Shit', '169 pages', 'yes read');
 myLibrary.push(theShit);
 
 function addBookToLibrary () {
-  // const title = document.getElementById('title');
-  // const author = document.getElementById('author');
-  // const pages = document.getElementById('pages');
-  // const read = document.getElementById('read');
-  // const submitButton = document.getElementById('submitButton');
 
   const modal = document.getElementById('modal');
   const openModal = document.getElementById('open-button');
   const closeModal = document.getElementById('close-button');
 
   openModal.addEventListener('click', () => {
-    modal.show();
+    modal.showModal();
   })
 
   closeModal.addEventListener('click', () => {
+    modal.close();
+  })
+
+  const modalForm = document.getElementById('book-form');
+
+  modalForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    //Capturing form data
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
+    const pages = document.getElementById('pages');
+    const read = document.getElementById('read');
+
+    const newBook = new Book (title, author, pages, read);
+
+    myLibrary.push(newBook);
+
     modal.close();
   })
 }
@@ -42,5 +55,5 @@ function displayLibrary() {
   })
 }
 
-displayLibrary();
 addBookToLibrary();
+displayLibrary();

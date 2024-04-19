@@ -4,10 +4,31 @@ html, body {
 }
 
 body {
-  background-color: gray;
+  background-color: rgb(75, 72, 72);
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.new-book-btn {
+  background-color: rgb(88, 88, 248);
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
 }
 
 .new-book-btn:hover {
   cursor: pointer;
   
+}
+
+::backdrop {
+  background-image: linear-gradient(
+    45deg,
+    magenta,
+    rebeccapurple,
+    dodgerblue,
+    green
+  );
+  opacity: 0.75;
 }
