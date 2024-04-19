@@ -5,14 +5,16 @@ function Book(title, author, pages, read) {
   this.author = author,
   this.pages = pages,
   this.read = read,
-  this.info = function () { return (`${title} by ${author}, ${pages}, ${read}`);}
+  this.info = function () { return (`${title} by ${author}, ${pages} pages, ${read} read`);}
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read');
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295', 'no');
 myLibrary.push(theHobbit);
 
-const theShit = new Book ('The Shot', 'Ted Shit', '169 pages', 'yes read');
+const theShit = new Book ('The Shot', 'Ted Shit', '169', 'yes');
 myLibrary.push(theShit);
+
+displayLibrary();
 
 function addBookToLibrary () {
 
@@ -44,16 +46,27 @@ function addBookToLibrary () {
     myLibrary.push(newBook);
     console.log(newBook.info());
     modal.close();
+    displayLibrary();
   })
 }
 
 
 function displayLibrary() {
+  const libraryDiv = document.getElementById('library-display');
+  libraryDiv.innerHTML = '';
 
   myLibrary.forEach(book => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    const cardText = document.createElement('p');
+    cardText.classList.add('card-text');
+    cardText.textContent = book.info();
+
+    card.appendChild(cardText);
+    libraryDiv.appendChild(card);
+
     console.log(book.info());
   })
 }
 
 addBookToLibrary();
-displayLibrary();
