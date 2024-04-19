@@ -9,37 +9,38 @@ function Book(title, author, pages, read) {
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read');
-myLibrary.push(theHobbit); // Add initial book (optional)
+myLibrary.push(theHobbit);
+
+const theShit = new Book ('The Shot', 'Ted Shit', '169 pages', 'yes read');
+myLibrary.push(theShit);
 
 function addBookToLibrary () {
-  const title = document.getElementById('title');
-  const author = document.getElementById('author');
-  const pages = document.getElementById('pages');
-  const read = document.getElementById('read');
-  const submitButton = document.getElementById('submitButton');
+  // const title = document.getElementById('title');
+  // const author = document.getElementById('author');
+  // const pages = document.getElementById('pages');
+  // const read = document.getElementById('read');
+  // const submitButton = document.getElementById('submitButton');
 
-  submitButton.addEventListener('click', () => {
-    const newTitle = title.value;
-    const newAuthor = author.value;
-    const newPages = pages.value;
-    const newRead = read.value;
+  const modal = document.getElementById('modal');
+  const openModal = document.getElementById('open-button');
+  const closeModal = document.getElementById('close-button');
 
-    const newBook = new Book(newTitle, newAuthor, newPages, newRead);
-    myLibrary.push(newBook);
+  openModal.addEventListener('click', () => {
+    modal.show();
+  })
 
+  closeModal.addEventListener('click', () => {
+    modal.close();
   })
 }
 
 
 function displayLibrary() {
-  const libraryContainer = document.getElementById('library-container');
 
   myLibrary.forEach(book => {
-    const infoElement = document.createElement('p');
-    infoElement.textContent = book.info();
-    libraryContainer.appendChild(infoElement);
+    console.log(book.info());
   })
 }
 
-addBookToLibrary();
 displayLibrary();
+addBookToLibrary();
