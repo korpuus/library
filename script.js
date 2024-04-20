@@ -64,8 +64,6 @@ function displayLibrary() {
 
     card.appendChild(cardText);
     libraryDiv.appendChild(card);
-
-    console.log(book.info());
   })
 }
 
