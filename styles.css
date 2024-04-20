@@ -76,13 +76,13 @@ dialog {
 }
 
 .remove-btn {
-  color: black;
+  color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 20px;
   background-color: rgb(242, 39, 39);
   font-weight: bold;
   font-size: 12px;
-  padding-top: 2px;
+  text-align: center;
 }
 
 .remove-btn:hover {

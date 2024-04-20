@@ -52,46 +52,39 @@ function addBookToLibrary () {
 
 function displayLibrary() {
   const libraryDiv = document.getElementById('library-display');
-  libraryDiv.innerHTML = '';
+  libraryDiv.innerHTML = ''; // Clear previous content
 
   myLibrary.forEach((book, index) => {
-    //Display books on separate cards
+    // Create card elements
     const card = document.createElement('div');
     card.classList.add('card');
     const cardText = document.createElement('p');
     cardText.classList.add('card-text');
     cardText.textContent = book.info();
 
-    //Assign index as data attribute
+    // Assign index as data attribute for easy access
     card.dataset.bookId = index;
 
     card.appendChild(cardText);
     libraryDiv.appendChild(card);
 
-    //Remove button
-  const removeDiv = document.createElement('div');
-  removeDiv.classList.add('remove-div');
-  const removeBtn = document.createElement('button');
-  removeBtn.classList.add('remove-btn');
-  removeBtn.textContent = 'X';
+    // Create remove button container and button
+    const removeDiv = document.createElement('div');
+    removeDiv.classList.add('remove-div'); // Add your desired styles here
 
-  removeDiv.appendChild(removeBtn);
-  card.appendChild(removeDiv);
-  })
-  
-  //Event delegation
-  libraryDiv.addEventListener('click', (event) => {
-    if(event.target.classList.contains('remove-btn')) {
-      const card = event.target.closest('.card');
-      const bookId = card.dataset.bookId;
+    const removeBtn = document.createElement('button');
+    removeBtn.classList.add('remove-btn');
+    removeBtn.textContent = 'x';
 
-      //Remove book from array
-      myLibrary.splice(bookId, 1);
+    removeDiv.appendChild(removeBtn);
+    card.appendChild(removeDiv);
 
-      displayLibrary();
-    }
-  })
-
+    // Add click event listener to the remove button
+    removeBtn.addEventListener('click', function() {
+      const buttonIndex = this.parentElement.dataset.bookId; // Get card index from data attribute
+      myLibrary.splice(buttonIndex, 1); // Remove book from library array
+      displayLibrary(); // Update library display with changes
+    });
+  });
 }
-
 addBookToLibrary();
