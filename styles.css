@@ -78,13 +78,25 @@ dialog {
 .remove-btn {
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 3px;
   background-color: rgb(242, 39, 39);
   font-weight: bold;
   font-size: 12px;
   text-align: center;
+  margin-left: 10px;
 }
 
-.remove-btn:hover {
+.remove-btn:hover, .read-btn:hover {
   cursor: pointer;
+}
+
+.read-btn {
+  color: white;
+  border: none;
+  border-radius: 3px;
+  background-color: blueviolet;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  margin-left: 10px;
 }

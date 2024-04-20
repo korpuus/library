@@ -5,14 +5,17 @@ function Book(title, author, pages, read) {
   this.author = author,
   this.pages = pages,
   this.read = read,
-  this.info = function () { return (`"${title}" by ${author}, ${pages} pages, ${read} read`);}
+  this.info = function () { return (`"${title}" by ${author}, ${pages} pages`);}
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295', 'no');
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295', 'yes');
 myLibrary.push(theHobbit);
 
-const theShit = new Book ('The Shot', 'Ted Shit', '169', 'yes');
+const theShit = new Book ('The Shot', 'Ted Shit', '169', 'no');
 myLibrary.push(theShit);
+
+const theClass = new Book ('The Class', 'Adam Apple', '190', 'yes');
+myLibrary.push(theClass);
 
 displayLibrary();
 
@@ -52,7 +55,7 @@ function addBookToLibrary () {
 
 function displayLibrary() {
   const libraryDiv = document.getElementById('library-display');
-  libraryDiv.innerHTML = ''; // Clear previous content
+  libraryDiv.innerHTML = '';
 
   myLibrary.forEach((book, index) => {
     // Create card elements
@@ -62,15 +65,15 @@ function displayLibrary() {
     cardText.classList.add('card-text');
     cardText.textContent = book.info();
 
-    // Assign index as data attribute for easy access
+    //Assign index as data attribute
     card.dataset.bookId = index;
 
     card.appendChild(cardText);
     libraryDiv.appendChild(card);
 
-    // Create remove button container and button
+    //Remove button
     const removeDiv = document.createElement('div');
-    removeDiv.classList.add('remove-div'); // Add your desired styles here
+    removeDiv.classList.add('remove-div'); 
 
     const removeBtn = document.createElement('button');
     removeBtn.classList.add('remove-btn');
@@ -79,12 +82,26 @@ function displayLibrary() {
     removeDiv.appendChild(removeBtn);
     card.appendChild(removeDiv);
 
-    // Add click event listener to the remove button
     removeBtn.addEventListener('click', function() {
       const buttonIndex = this.parentElement.dataset.bookId; // Get card index from data attribute
-      myLibrary.splice(buttonIndex, 1); // Remove book from library array
-      displayLibrary(); // Update library display with changes
+      myLibrary.splice(buttonIndex, 1); 
+      displayLibrary();
     });
+
+    //Read button
+
+    const readBtn = document.createElement('button');
+    readBtn.classList.add('read-btn');
+    readBtn.textContent = 'read';
+    readBtn.textContent = book.read === 'no' ? 'Not read' : 'Read';
+
+    removeDiv.appendChild(readBtn);
+
+    readBtn.addEventListener('click', () => {
+      book.read = book.read === 'yes' ? 'no' : 'yes';
+      displayLibrary();
+    })
+
   });
 }
 addBookToLibrary();
