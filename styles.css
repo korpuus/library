@@ -56,6 +56,46 @@ dialog {
   border: 2px solid black;
 }
 
+form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.submit-div {
+  display: flex;
+  justify-content: center;
+}
+
+#submitButton {
+  padding: 5px 20px;
+  background-color: rgb(33, 239, 33);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#submitButton:hover, #close-button:hover {
+  cursor: pointer;
+}
+
+.close-div {
+  display: flex;
+  justify-content: center;
+}
+
+#close-button {
+  padding: 5px 20px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+input {
+  padding: 3px 0;
+}
+
 #library-display{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
