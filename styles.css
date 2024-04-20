@@ -58,7 +58,7 @@ dialog {
 
 #library-display{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 10px;
 }
 
@@ -71,4 +71,20 @@ dialog {
   background-color: white;
   border-radius: 5px;
   padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remove-btn {
+  color: black;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(242, 39, 39);
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+.remove-btn:hover {
+  cursor: pointer;
 }
